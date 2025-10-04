@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StayHealthy – Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="./Sign_Up.css" />
+</head>
+<body>
+  <main>
+    <h1>Sign Up</h1>
+    <form class="signup-form" action="#" method="post">
+      
+      <!-- Role -->
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="doctor">Doctor</option>
+        <option value="patient">Patient</option>
+      </select>
+
+      <!-- Name -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <!-- Phone -->
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="1234567890" />
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required minlength="6" />
+
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+      <p class="alt-link">
+  Already have an account?
+  <a href="../Login/Login.html">Log in</a>
+</p>
+<p class="back-link">
+  <a href="../Navbar/Navbar.html">← Back to Home</a>
+</p>
+    </form>
+  </main>
+</body>
+</html>
