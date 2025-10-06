@@ -1,50 +1,38 @@
 // src/Components/Navbar/Navbar.js
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
-  // Example click handler (if you need it later for a mobile menu)
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log("Navbar button clicked");
-  };
+  const authed = !!sessionStorage.getItem("auth-token");
+  const email = sessionStorage.getItem("email") || "";
+  const displayName = email ? email.split("@")[0] : "";
 
   return (
-    <nav className="navbar" role="navigation" aria-label="Primary">
-      <div className="nav-container">
-        <Link to="/" className="brand" aria-label="StayHealthy Home">
-          StayHealthy
-        </Link>
-
-        <ul className="nav-links">
-          <li>
-            <NavLink to="/" className="nav-link">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/appointments" className="nav-link">
-              Appointments
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup" className="nav-link">
-              Sign Up
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/login" className="nav-link">
-              Login
-            </NavLink>
-          </li>
-        </ul>
-
-        {
-        <button className="primary-btn" onClick={handleClick}>
-          Book now
-        </button> }
+    <header className="nav-bar">
+      <div className="nav-left">
+        <NavLink to="/" className="brand">StayHealthy</NavLink>
       </div>
-    </nav>
+
+      <nav className="nav-center">
+        <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/appointments">Appointments</NavLink>
+        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/login">Login</NavLink>
+      </nav>
+
+      <div className="nav-right">
+        {authed ? (
+          <>
+            <span className="user-chip">@{displayName}</span>
+            <button className="primary">Logout</button>
+          </>
+        ) : (
+          <NavLink to="/appointments">
+            <button className="primary">Book now</button>
+          </NavLink>
+        )}
+      </div>
+    </header>
   );
 }

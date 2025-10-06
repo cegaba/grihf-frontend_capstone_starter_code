@@ -1,52 +1,74 @@
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+/* src/Components/Navbar/Navbar.css */
 
-.navbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-}
-
-.nav-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  font-weight: 600;
-  font-size: 20px;
-  color: #2563EB;
-  text-decoration: none;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 24px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-link {
-  color: #374151;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0 8px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-
-.nav-link:hover { color: #1D4ED8; }
-
-.content {
-  max-width: 800px;
-  margin: 32px auto;
-  padding: 0 24px;
-  color: #111827;
-}
+.nav-bar {
+    position: sticky; /* optional */
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding: 16px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-sizing: border-box;
+  }
+  
+  .nav-left .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 24px;              /* ← spacing between links */
+  }
+  
+  .nav-center a {
+    text-decoration: none;
+    color: #111827;
+    font-size: 16px;
+    padding: 8px 10px;      /* hit area */
+    border-radius: 8px;
+  }
+  
+  .nav-center a:hover {
+    background: #eef2ff;
+    color: #1e3a8a;
+  }
+  
+  .nav-center a.active {    /* NavLink auto-applies .active */
+    background: #eef2ff;
+    border-bottom: 2px solid #6366f1; /* or keep pill only */
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .user-chip {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+    font-weight: 600;
+  }
+  
+  .primary {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .primary:hover { background: #1d4ed8; }
+  

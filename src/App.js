@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar/Navbar";
 import LandingPage from "./Components/Landing_Page/Landing_Page";
-import Sign_Up from "./Components/Sign_Up/Sign_Up";
+import SignUp from "./Components/Sign_Up/Sign_Up";
 import Login from "./Components/Login/Login";
 
 
@@ -19,7 +19,7 @@ export default function App() {
           path="/appointments"
           element={<h2 style={{ padding: 24 }}>Appointments Page (placeholder)</h2>}
         />
-        <Route path="/signup" element={<Sign_Up />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
