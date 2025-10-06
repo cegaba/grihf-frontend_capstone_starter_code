@@ -1,50 +1,106 @@
-import React, { useState } from "react";
-import "./Login.css";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
+import "./Login.css"; // keep or reuse your Sign_Up.css styles if you prefer
 
 export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [errors, setErrors] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const validate = () => {
-    const e = {};
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email.";
-    if (form.password.length < 6) e.password = "Password must be at least 6 characters.";
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
+  const navigate = useNavigate();
 
-  const onChange = (ev) => setForm({ ...form, [ev.target.name]: ev.target.value });
+  // If already logged in, redirect home
+  useEffect(() => {
+    if (sessionStorage.getItem("auth-token")) {
+      navigate("/");
+    }
+  }, [navigate]);
 
-  const onSubmit = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      alert("Login OK (client validation passed)");
-      // TODO: call API_URL + /auth/login
+    setErr("");
+
+    if (!email || !password) {
+      setErr("Please enter email and password.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const res = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const json = await res.json();
+
+      if (json.authtoken) {
+        sessionStorage.setItem("auth-token", json.authtoken);
+        sessionStorage.setItem("email", email);
+        // show Logout + @name in Navbar
+        navigate("/");
+        window.location.reload();
+      } else {
+        if (json.errors && Array.isArray(json.errors)) {
+          setErr(json.errors.map((e) => e.msg).join(" "));
+        } else if (json.error) {
+          setErr(json.error);
+        } else {
+          setErr("Login failed. Please try again.");
+        }
+      }
+    } catch {
+      setErr("Network error. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <main className="form-wrap">
-      <h1>Log in</h1>
-      <form className="form" onSubmit={onSubmit} noValidate>
+    <div className="form-wrap" style={{ marginTop: "5%" }}>
+      <h1>Login</h1>
+
+      <div style={{ fontSize: 14, marginBottom: 12 }}>
+        New here?{" "}
+        <Link to="/signup" style={{ color: "#2563eb", fontWeight: 600 }}>
+          Sign Up
+        </Link>
+      </div>
+
+      <form className="form" onSubmit={login} noValidate>
         <label htmlFor="email">Email</label>
         <input
-          id="email" name="email" type="email" value={form.email}
-          onChange={onChange} placeholder="you@example.com" required
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-        {errors.email && <p className="error">{errors.email}</p>}
 
         <label htmlFor="password">Password</label>
         <input
-          id="password" name="password" type="password" value={form.password}
-          onChange={onChange} placeholder="••••••••" required
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        {errors.password && <p className="error">{errors.password}</p>}
+
+        {err && <p className="error">{err}</p>}
 
         <div className="actions">
-          <button type="submit">Log in</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
         </div>
       </form>
-    </main>
+    </div>
   );
 }
