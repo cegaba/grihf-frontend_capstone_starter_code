@@ -21,7 +21,7 @@ export default function App() {
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/instant" element={<InstantConsultation />} />
+        <Route path="/instant-consultation" element={<InstantConsultation />} />
       </Routes>
     </BrowserRouter>
   );
