@@ -1,0 +1,48 @@
+.doctor-card {
+    border: 1px solid #e7e7e7;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    text-align: center;
+  
+    width: 100%;     /* <-- fills the grid column */
+    height: 100%;    /* <-- fills vertically too */
+  }
+.doctor-card__body { padding: 16px 16px 8px; }
+
+.doctor-card__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  margin: 8px auto 0;
+}
+
+.doctor-card__name { margin: 10px 0 2px; font-size: 1.1rem; font-weight: 700; }
+.doctor-card__specialty { margin: 0; opacity: 0.8; }
+.doctor-card__experience { margin: 8px 0 0; }
+.doctor-card__ratings { margin: 8px 0 12px; }
+.doctor-card__ratings .label { font-weight: 600; }
+
+.dc-stars { font-size: 1rem; }
+.star { opacity: 0.25; margin-right: 2px; }
+.star.filled { opacity: 1; color: #f5b301; }
+
+.book-footer {
+  border: none;
+  background: #0d6efd;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.book-footer .sub { font-weight: 400; font-size: 0.9rem; opacity: 0.95; }
+.book-footer:hover { filter: brightness(0.95); }

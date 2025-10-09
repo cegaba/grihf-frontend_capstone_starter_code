@@ -1,36 +1,23 @@
-.searchpage-container {
-    max-width: 1200px;
-    margin: auto;
-    margin-top:10%;
-    color: #414146;
-    padding: 0 20px;
-    position: static;
-    width: 100%;
-}
-.searchpage-container img {
-    max-width: 100%;
-}
-.search-results-container .doctorcard{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 18px;
-    border-radius: 4px;
-    background-color: #fff;
+.ic-page {
+    padding: 24px;
+    width: 100%;          /* full width */
+    max-width: none;      /* remove any max-width limits */
+    margin: 0;            /* remove centering constraint */
+  }
 
-}
+.ic-header { text-align: center; margin: 16px 0 24px; }
+.ic-header h2 { margin: 0; font-size: 1.6rem; font-weight: 700; }
+.ic-subtitle { margin: 8px 0 0; font-size: 0.95rem; opacity: 0.8; }
 
-.search-results-container>h2 {
-    text-align: left;
-    font-size: 24px;
-    font-weight: 700;
+.cards-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* always 3 equal columns */
+    width: 100%;                            /* stretch grid */
+  }
+@media (min-width: 680px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-.search-results-container>h3 {
-    margin-top: 12px;
-    color: #2d2d32;
-    text-align: left;
-    font-size: 15px;
+@media (min-width: 980px) {
+  .cards-grid { grid-template-columns: repeat(3, 1fr); }
 }
