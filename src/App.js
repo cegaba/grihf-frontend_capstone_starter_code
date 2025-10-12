@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import LandingPage from "./Components/Landing_Page/Landing_Page";
 import SignUp from "./Components/Sign_Up/Sign_Up";
 import Login from "./Components/Login/Login";
+import BookingConsultation from "./Components/BookingConsultation";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/instant-consultation" element={<InstantConsultation />} />
+        <Route path="/booking" element={<BookingConsultation />} />
       </Routes>
     </BrowserRouter>
   );

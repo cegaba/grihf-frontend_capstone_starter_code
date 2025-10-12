@@ -1,0 +1,59 @@
+.appt-form {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 12px;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.appt-form h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.appt-form form {
+  display: grid;
+  gap: 12px;
+}
+
+.appt-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.appt-form input {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.appt-form .err {
+  color: #d33;
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actions button[type="submit"] {
+  background: #0d6efd;
+  color: white;
+}
+
+.actions button[type="button"] {
+  background: #f0f0f0;
+}

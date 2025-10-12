@@ -20,6 +20,8 @@ export default function Navbar() {
         <NavLink to="/signup">Sign Up</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/instant-consultation">Instant</NavLink>
+        <NavLink to="/booking">Booking</NavLink>
+
       </nav>
 
       <div className="nav-right">

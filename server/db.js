@@ -1,22 +1,19 @@
 // server/db.js
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-// (Optional) silence the strictQuery warning you saw
-mongoose.set("strictQuery", true);
-
-// 👇 Paste YOUR current creds from the Toolbox here
-const mongoURI = "mongodb://root:ZXA6d0UDfgCm7leWfqa5k0kv@172.21.14.250:27017/?authSource=admin";
-
-async function connectToMongo() {
+const connectToMongo = async () => {
   try {
-    await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 15000,
-      socketTimeoutMS: 45000,
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 10000,
     });
-    console.log("Connected to Mongo Successfully");
+    console.log("✅ Mongo connected");
   } catch (err) {
-    console.error("Mongo connection error:", err.message);
+    console.error("❌ Mongo connection error:", err.message);
+    process.exit(1);
   }
-}
+};
 
 module.exports = connectToMongo;
