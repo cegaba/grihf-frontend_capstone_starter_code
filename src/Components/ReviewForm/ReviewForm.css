@@ -1,0 +1,138 @@
+.reviews-page {
+  padding: 24px;
+}
+
+.reviews-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.reviews-header,
+.reviews-row {
+  display: grid;
+  grid-template-columns: 160px 1.2fr 1fr 180px 160px;
+  gap: 0;
+  align-items: center;
+}
+
+.reviews-header {
+  background: #f9fafb;
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.reviews-header > div,
+.reviews-row > div {
+  padding: 12px 16px;
+}
+
+.reviews-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.doctor-link {
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.btn-primary {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #1976ff; /* bright blue like screenshot */
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.review-given {
+  font-weight: 600;
+}
+
+/* Feedback modal/panel */
+.rf-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.35);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.rf-card {
+  width: 96%;
+  max-width: 520px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  padding: 18px;
+}
+
+.rf-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.rf-form {
+  display: grid;
+  gap: 12px;
+}
+
+.rf-label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.rf-input, .rf-textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  outline: none;
+}
+.rf-input:focus, .rf-textarea:focus {
+  border-color: #1976ff;
+  box-shadow: 0 0 0 3px rgba(25, 118, 255, 0.15);
+}
+
+.rf-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-ghost {
+  appearance: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #fff;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: #f9fafb;
+}
