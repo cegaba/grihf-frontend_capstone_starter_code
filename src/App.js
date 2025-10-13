@@ -7,7 +7,7 @@ import LandingPage from "./Components/Landing_Page/Landing_Page";
 import SignUp from "./Components/Sign_Up/Sign_Up";
 import Login from "./Components/Login/Login";
 import BookingConsultation from "./Components/BookingConsultation";
-
+import ProfileForm from './Components/ProfileCard/ProfileForm';
 
 export default function App() {
   return (
@@ -24,6 +24,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/instant-consultation" element={<InstantConsultation />} />
         <Route path="/booking" element={<BookingConsultation />} />
+         <Route path="/profile" element={<ProfileForm />} />
       </Routes>
     </BrowserRouter>
   );
