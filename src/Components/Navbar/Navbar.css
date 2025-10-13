@@ -71,4 +71,9 @@
   }
   
   .primary:hover { background: #1d4ed8; }
+
+  .user-menu-container {
+    position: relative; /* This makes the dropdown position itself relative to the user chip */
+    display: inline-block; /* Helps with layout */
+  }
   
