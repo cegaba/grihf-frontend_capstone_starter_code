@@ -1,0 +1,79 @@
+/* Main container for the Reports page */
+.reports-container {
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    /* Using a modern, system-agnostic font stack for better readability */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  .reports-container h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #1a202c; /* Darker, less harsh than pure black */
+  }
+  
+  /* Base styles for the reports table */
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .reports-table th,
+  .reports-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0; /* Lighter border color */
+    vertical-align: middle;
+  }
+  
+  .reports-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #4a5568; /* Softer text color for headers */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* --- ENHANCEMENT: Add a hover effect to table rows for better interactivity --- */
+  .reports-table tbody tr {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .reports-table tbody tr:hover {
+    background-color: #f7fafc;
+  }
+  
+  .reports-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* --- ENHANCEMENT: Improved button styles and hover effects --- */
+  .report-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .report-button:hover {
+    /* Button "lifts" slightly on hover for a modern feel */
+    transform: translateY(-2px); 
+  }
+  
+  .view-button, .download-button {
+    background-color: #007bff;
+  }
+  
+  .view-button:hover, .download-button:hover {
+    background-color: #b30c00;
+  }

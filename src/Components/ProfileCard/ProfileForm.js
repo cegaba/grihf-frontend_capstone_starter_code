@@ -1,25 +1,17 @@
-// src/components/ProfileCard/ProfileForm.js
-
 import React, { useEffect, useState } from "react";
-// Note: You will need to create and configure this config file
-// For now, you can replace API_URL with your server's localhost URL
-// Example: const API_URL = "http://localhost:8181";
 import { useNavigate } from "react-router-dom";
 import "./ProfileForm.css"; // Import the CSS for styling
 
-// Define a Function component called ProfileForm
 const ProfileForm = () => {
-    const API_URL = "https://random-words-1234.skillsnetwork.labs.com:8181";  // Replace if you have a config file
+  // IMPORTANT: Replace this with the public URL for your backend server from the Skills Lab "Ports" tab.
+const API_URL = "https://labs-mongo-greasy-purring-xylophone.mongo.databases.labs.skills.network:8181"; 
 
-  // Set up state variables using the useState hook
   const [userDetails, setUserDetails] = useState({});
   const [updatedDetails, setUpdatedDetails] = useState({});
   const [editMode, setEditMode] = useState(false);
   
-  // Access the navigation functionality from React Router
   const navigate = useNavigate();
   
-  // Use the useEffect hook to fetch user profile data when the component mounts
   useEffect(() => {
     const authtoken = sessionStorage.getItem("auth-token");
     if (!authtoken) {
@@ -29,7 +21,6 @@ const ProfileForm = () => {
     }
   }, [navigate]);
 
-  // Function to fetch user profile data from the API
   const fetchUserProfile = async () => {
     try {
       const authtoken = sessionStorage.getItem("auth-token");
@@ -57,12 +48,10 @@ const ProfileForm = () => {
     }
   };
 
-  // Function to enable edit mode for profile details
   const handleEdit = () => {
     setEditMode(true);
   };
 
-  // Function to update state when user inputs new data
   const handleInputChange = (e) => {
     setUpdatedDetails({
       ...updatedDetails,
@@ -70,7 +59,6 @@ const ProfileForm = () => {
     });
   };
 
-  // Function to handle form submission when user saves changes
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -96,7 +84,6 @@ const ProfileForm = () => {
       if (response.ok) {
         sessionStorage.setItem("name", updatedDetails.name);
         sessionStorage.setItem("phone", updatedDetails.phone);
-
         setUserDetails(updatedDetails);
         setEditMode(false);
         alert(`Profile Updated Successfully!`);
@@ -109,7 +96,6 @@ const ProfileForm = () => {
     }
   };
 
-  // Render the profile form with different sections based on edit mode
   return (
     <div className="profile-container">
       {editMode ? (
@@ -121,11 +107,11 @@ const ProfileForm = () => {
               type="email"
               name="email"
               value={userDetails.email || ''}
-              disabled // Disable the email field
+              disabled
             />
           </label>
           
-          {/* --- CODE ADDED FOR EDIT MODE --- */}
+          {/* --- This is the logic from the hint for line 114 --- */}
           <label>
             Name
             <input
@@ -144,18 +130,16 @@ const ProfileForm = () => {
               onChange={handleInputChange}
             />
           </label>
-          {/* --- END OF ADDED CODE --- */}
-
+          
           <button type="submit" className="save-button">Save</button>
         </form>
       ) : (
         <div className="profile-details">
           <h1>Welcome, {userDetails.name}</h1>
 
-          {/* --- CODE ADDED FOR DISPLAY MODE --- */}
+          {/* --- This is the logic from the hint for line 120 --- */}
           <p> <b>Email:</b> {userDetails.email}</p>
           <p><b>Phone:</b> {userDetails.phone}</p>
-          {/* --- END OF ADDED CODE --- */}
 
           <button onClick={handleEdit} className="edit-button">Edit</button>
         </div>

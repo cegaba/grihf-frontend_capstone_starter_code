@@ -8,6 +8,7 @@ import SignUp from "./Components/Sign_Up/Sign_Up";
 import Login from "./Components/Login/Login";
 import BookingConsultation from "./Components/BookingConsultation";
 import ProfileForm from './Components/ProfileCard/ProfileForm';
+import ReportsLayout from './Components/ReportsLayout/ReportsLayout';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/instant-consultation" element={<InstantConsultation />} />
         <Route path="/booking" element={<BookingConsultation />} />
          <Route path="/profile" element={<ProfileForm />} />
+         <Route path="/reports" element={<ReportsLayout />} />
       </Routes>
     </BrowserRouter>
   );

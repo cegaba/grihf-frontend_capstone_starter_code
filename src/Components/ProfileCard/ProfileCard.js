@@ -7,8 +7,10 @@ const ProfileCard = () => {
       <ul className="profile-options">
         <li>
           <a href="/profile">Your Profile</a>
+        </li>        
+        <li>
+          <a href="/reports">Your Reports</a>
         </li>
-        {/* You can add more links like "Settings" or "Dashboard" here */}
       </ul>
     </div>
   );
