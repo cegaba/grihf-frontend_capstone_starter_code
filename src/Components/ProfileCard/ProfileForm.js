@@ -1,10 +1,12 @@
+// src/Components/ProfileCard/ProfileForm.js
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ProfileForm.css"; // Import the CSS for styling
+import { API_URL } from "../../config"; // <-- CORRECT: Imports the URL from the central config file
+import "./ProfileForm.css";
 
 const ProfileForm = () => {
-  // IMPORTANT: Replace this with the public URL for your backend server from the Skills Lab "Ports" tab.
-const API_URL = "https://labs-mongo-greasy-purring-xylophone.mongo.databases.labs.skills.network:8181"; 
+  // The incorrect, hardcoded API_URL has been removed from here.
 
   const [userDetails, setUserDetails] = useState({});
   const [updatedDetails, setUpdatedDetails] = useState({});
@@ -110,8 +112,6 @@ const API_URL = "https://labs-mongo-greasy-purring-xylophone.mongo.databases.lab
               disabled
             />
           </label>
-          
-          {/* --- This is the logic from the hint for line 114 --- */}
           <label>
             Name
             <input
@@ -130,17 +130,13 @@ const API_URL = "https://labs-mongo-greasy-purring-xylophone.mongo.databases.lab
               onChange={handleInputChange}
             />
           </label>
-          
           <button type="submit" className="save-button">Save</button>
         </form>
       ) : (
         <div className="profile-details">
           <h1>Welcome, {userDetails.name}</h1>
-
-          {/* --- This is the logic from the hint for line 120 --- */}
           <p> <b>Email:</b> {userDetails.email}</p>
           <p><b>Phone:</b> {userDetails.phone}</p>
-
           <button onClick={handleEdit} className="edit-button">Edit</button>
         </div>
       )}

@@ -1,5 +1,5 @@
-export const API_URL = window.location.hostname === "localhost"
-  ? "http://localhost:8181"
-  : "https://cegaba2-8181.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/";
+const hostname = window.location.hostname;
+const backendPort = "8181";
+export const API_URL = `${window.location.protocol}//${hostname.replace('3000', backendPort)}`;
 
 console.log("API_URL:", API_URL);
